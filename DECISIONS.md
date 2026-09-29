@@ -6,6 +6,59 @@ as *unmeasured*. Wrongness is an entry, never an edit.
 
 ---
 
+## 2026-09-29 (Phase 2 — the what-if model)
+
+### The model is pure, and the sliders' constants live with it
+- **`src/lib/model.ts` takes numbers, never data.** `getSimulatableCompounds` in `data.ts` supplies `C0` and `r0`; the model knows nothing about
+  compounds. This is what lets the formula rendered on `/about` and the arithmetic behind the result panel be the same code rather than two
+  implementations that agree until one is edited. The defaults and ranges the plan specifies (`d` 0.05 / 0–0.30, `u` 0.10 / 0–0.5, ceiling 0.95,
+  dominance factor 3) are exported constants so Phase 3's sliders read them instead of hard-coding and drifting.
+- **Out-of-range input is deliberately not clamped.** An `r1` below `r0` produces `C1 > C0`; a `d × a` above 1 produces a negative load. Silently
+  clamping would turn a broken control into a plausible-looking number, which is the failure mode the whole evidence-labelling scheme exists to
+  prevent. Pinned by the test *"does not clamp out-of-range input, so a UI bug cannot look plausible"*.
+- **Two degenerate cases return a documented value instead of `NaN` or `Infinity`.** `u = 0, r0 = 1` makes `passThrough(r0)` zero — a plant that
+  already removes everything, so the ratio is 1 because an upgrade has nothing left to remove. `C0 = 0` has no reduction to report, so the
+  percentage is 0. Both are reachable through the sliders and both would otherwise print `NaN`/`Infinity` into the result panel.
+
+### Correction to a Phase 1 assumption — one compound is simulatable, not four
+- **Measured, after two of my own predictions were wrong.** I expected `ciprofloxacin` per city and, on the first run, an empty Oslo. Both were
+  wrong: `ciprofloxacin` has **no detection row at all** (`detections.some(d => d.compoundId === "ciprofloxacin")` → `false`), and `carbamazepine`
+  carries a **study-wide** maximum of **1,218 ng/L**, so it resolves for all five cities through the `cityId: "all"` fallback. The pinned map is
+  therefore `{benevento, coimbra, ghent, oslo, toulouse} → ["carbamazepine"]`. What went wrong was the predicting, not the code: I reasoned from
+  the plan's *required* compounds instead of reading the detection rows. Two of the four parameters — `atenolol` and `propranolol` — occur in
+  `detections.json` only with `value: null`, because the study reports their per-city detection frequency and not their concentration.
+- **Consequence for the UI, stated rather than smoothed over.** The `/whatif` dropdown will offer exactly one compound today, and its value is
+  study-wide. Phase 3 must render "Study-wide value (all 5 cities)" on the result panel, not only on the city cards, or the simulation will read as
+  if 1,218 ng/L were measured in the visitor's own city. This is a **coverage gap, not a bug**: `null` means "not reported" and the simulator is
+  supposed to hide what it cannot support.
+- **Pinned so it cannot close by accident.** The coverage map and the study-wide scope are asserted per city, and the antibiotic check asserts
+  `ciprofloxacin` still has no baseline — so adding one is a deliberate act that fails a test first.
+
+### Phase 2 needs no AI model
+- **Decision: no OpenRouter, no Gemini 2.5 Flash, no model dependency in Phase 2.** Everything in §6 is closed-form arithmetic over six numbers;
+  a language model has nothing to compute here. The plausible future use is an unscripted "ask about your stream" surface, and
+  `IMPLEMENTATION.md` §9 explicitly lists **a chatbot** under "Do NOT build", alongside accounts, live sensors and maps. Adding a provider now would
+  buy an API key to manage, a cost surface, and a nondeterministic step inside a pipeline whose entire value is that every number is traceable to a
+  citation. Rejected alternative: wiring Gemini in early "in case". The key stays unused; if a later surface genuinely needs generation, that is a
+  fresh decision with its own justification.
+- **Retraction, in place.** A first draft of this entry claimed the disposal branch was unreachable through the sliders as specified, and quoted
+  "≈78%" from an arithmetic slip (`0.9 × 0.7` written as `0.9 + 0.7`). Both claims were wrong. Measured, with the test
+  *"reaches the disposal message from real slider values, not just literals"*: at `d = 0.3, a = 1, u = 0.1, r0 = 0.2, r1 = 0.3` take-back is
+  **30.00%** against treatment **≈10.98%**, so the branch fires on a strict take-back win and not only on a tie. The `d ≤ 0.30` cap does bound
+  take-back at 30%, but a treatment slider left near `r0` stays below that. The lesson is the ordinary one: I asserted a reachability claim from
+  reasoning instead of writing the case, which is the same failure this file records elsewhere as "an empty scan and a broken scanner look
+  identical".
+- **The real Phase 3 hazard, measured.** At the page's initial state (`a = 0`, `r1 = r0`) both effects are exactly zero, and `0 >= 0` resolves to
+  `VERDICT_DISPOSAL_MATTERS`. So a page that renders `verdict()` unconditionally opens by telling the visitor how they dispose of unused pills,
+  before they have touched a control. Phase 3 must render a "nothing changed yet" state. Pinned by
+  *"returns the disposal message before the user touches anything"* rather than left as a comment.
+
+### Verification
+- **`npm run verify` green on the Phase 2 branch.** `next typegen && tsc --noEmit` → `eslint` → **41/41 tests** (up from 22) → `next build`,
+  exit code 0. The 252-case slider grid is the load-bearing test: it is what turns "the formula looks bounded" into a measured claim.
+
+---
+
 ## 2026-09-29 (Phase 1 — data foundation and campaign validation)
 
 ### Per-compound values exist, stated in the body text — not in Table 5

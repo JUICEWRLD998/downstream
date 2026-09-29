@@ -195,6 +195,42 @@ describe("verdict boundaries", () => {
   it("returns the disposal message on a tie", () => {
     expect(verdict(4, 4)).toBe(VERDICT_DISPOSAL_MATTERS);
   });
+
+  it("reaches the disposal message from real slider values, not just literals", () => {
+    // The extreme case for take-back: the largest disposal share the slider
+    // allows, fully adopted, against a small treatment improvement.
+    const result = simulate({
+      ...BASE,
+      d: 0.3,
+      a: 1,
+      u: 0.1,
+      r0: 0.2,
+      r1: 0.3,
+    });
+    const expectedTreatment =
+      (1 - passThrough(0.1, 0.3) / passThrough(0.1, 0.2)) * 100;
+
+    expect(result.takeBackOnlyPercent).toBeCloseTo(30, 10);
+    expect(result.treatmentOnlyPercent).toBeCloseTo(expectedTreatment, 10);
+    expect(result.takeBackOnlyPercent).toBeGreaterThan(
+      result.treatmentOnlyPercent,
+    );
+    expect(
+      verdict(result.takeBackOnlyPercent, result.treatmentOnlyPercent),
+    ).toBe(VERDICT_DISPOSAL_MATTERS);
+  });
+
+  it("returns the disposal message before the user touches anything", () => {
+    // a = 0 and r1 = r0 give two zeroes, and `0 >= 0` picks this branch. Phase 3
+    // must show a "nothing changed yet" state instead of this verdict, or the
+    // page opens by telling the visitor how they dispose of pills.
+    const untouched = simulate({ ...BASE, a: 0, r1: BASE.r0 });
+    expect(untouched.takeBackOnlyPercent).toBe(0);
+    expect(untouched.treatmentOnlyPercent).toBe(0);
+    expect(
+      verdict(untouched.takeBackOnlyPercent, untouched.treatmentOnlyPercent),
+    ).toBe(VERDICT_DISPOSAL_MATTERS);
+  });
 });
 
 describe("the simulator's real inputs", () => {
