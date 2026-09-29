@@ -54,8 +54,24 @@ as *unmeasured*. Wrongness is an entry, never an edit.
   *"returns the disposal message before the user touches anything"* rather than left as a comment.
 
 ### Verification
-- **`npm run verify` green on the Phase 2 branch.** `next typegen && tsc --noEmit` → `eslint` → **41/41 tests** (up from 22) → `next build`,
-  exit code 0. The 252-case slider grid is the load-bearing test: it is what turns "the formula looks bounded" into a measured claim.
+- **`npm run verify` green on the Phase 2 branch.** `next typegen && tsc --noEmit` → `eslint` → **43/43 tests** (up from 22) → `next build`,
+  exit code 0. The 252-case slider grid is the load-bearing test: it is what turns "the formula looks bounded" into a measured claim. Every
+  `npm run verify` piped to `tail`/`grep` reports the *pipe's* exit status, not npm's, and looked green while showing only 14 lines of output — the
+  real gate is `npm run verify > log 2>&1; echo "REAL_EXIT=$?"`.
+
+### Phase 3 decisions taken before it starts
+- **CSS Modules and design tokens; Tailwind is out.** `IMPLEMENTATION.md` §3 mandates Tailwind v4, and it is installed and wired through
+  `postcss.config.mjs`. The operator's standing design preference is CSS Modules with a token cascade and explicitly no Tailwind (it is what the
+  masayume and anti-slop UI workflow assumes), and on the conflict being put to them they chose CSS Modules. Rejected alternative: keeping
+  Tailwind for layout and tokens only for colour — two systems to keep coherent for no gain on a six-screen app.
+- **Consequence, deliberately deferred to Phase 3's first step.** `tailwindcss` and `@tailwindcss/postcss` are still live dependencies and
+  PostCSS is still wired to them. Leaving them is a landmine: any file that adds `@import "tailwindcss"` silently starts a second styling system
+  next to the token cascade. Removing them is a code change that needs its own `npm run verify`, so it is the first Phase 3 task rather than
+  something done here.
+- **The simulator ships with carbamazepine alone.** On the coverage gap being put to them, the operator chose to proceed rather than spend budget
+  hunting baselines. Phase 3 must therefore label the result panel's baseline "Study-wide value (all 5 cities)", because 1,218 ng/L is the
+  all-sites maximum and not a figure measured in the visitor's city. Rejected alternatives: a research pass for the `atenolol` / `propranolol` /
+  `ciprofloxacin` baselines (the study's SI is unobtainable), and listing the three as disabled "not enough data" rows.
 
 ---
 
