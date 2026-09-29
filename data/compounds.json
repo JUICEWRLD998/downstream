@@ -1,0 +1,178 @@
+[
+  {
+    "id": "ofloxacin",
+    "name": "Ofloxacin",
+    "therapeuticClass": "Antibiotic",
+    "plainUse": "A fluoroquinolone antibiotic used for urinary, respiratory and skin infections",
+    "euWatchList": true,
+    "isAntibiotic": true,
+    "excretedUnchangedFraction": null,
+    "wwtpRemoval": null,
+    "paramSourceId": null
+  },
+  {
+    "id": "ciprofloxacin",
+    "name": "Ciprofloxacin",
+    "therapeuticClass": "Antibiotic",
+    "plainUse": "A fluoroquinolone antibiotic used for a wide range of bacterial infections",
+    "euWatchList": false,
+    "isAntibiotic": true,
+    "excretedUnchangedFraction": null,
+    "wwtpRemoval": 0.4,
+    "paramSourceId": "zhao-2026-antibiotics"
+  },
+  {
+    "id": "azithromycin",
+    "name": "Azithromycin",
+    "therapeuticClass": "Antibiotic",
+    "plainUse": "A macrolide antibiotic used for chest, throat and skin infections",
+    "euWatchList": false,
+    "isAntibiotic": true,
+    "excretedUnchangedFraction": null,
+    "wwtpRemoval": null,
+    "paramSourceId": null
+  },
+  {
+    "id": "trimethoprim",
+    "name": "Trimethoprim",
+    "therapeuticClass": "Antibiotic",
+    "plainUse": "An antibiotic used mainly for urinary tract infections",
+    "euWatchList": false,
+    "isAntibiotic": true,
+    "excretedUnchangedFraction": null,
+    "wwtpRemoval": null,
+    "paramSourceId": null
+  },
+  {
+    "id": "carbamazepine",
+    "name": "Carbamazepine",
+    "therapeuticClass": "Anticonvulsant",
+    "plainUse": "Used to treat epilepsy, bipolar disorder and some kinds of nerve pain",
+    "euWatchList": false,
+    "isAntibiotic": false,
+    "excretedUnchangedFraction": null,
+    "wwtpRemoval": 0.2,
+    "paramSourceId": "charlebois-2026"
+  },
+  {
+    "id": "irbesartan",
+    "name": "Irbesartan",
+    "therapeuticClass": "Antihypertensive",
+    "plainUse": "Used to treat high blood pressure and to protect the kidneys in diabetes",
+    "euWatchList": false,
+    "isAntibiotic": false,
+    "excretedUnchangedFraction": null,
+    "wwtpRemoval": null,
+    "paramSourceId": null
+  },
+  {
+    "id": "losartan",
+    "name": "Losartan",
+    "therapeuticClass": "Antihypertensive",
+    "plainUse": "Used to treat high blood pressure and heart failure",
+    "euWatchList": false,
+    "isAntibiotic": false,
+    "excretedUnchangedFraction": null,
+    "wwtpRemoval": null,
+    "paramSourceId": null
+  },
+  {
+    "id": "atenolol",
+    "name": "Atenolol",
+    "therapeuticClass": "Antihypertensive",
+    "plainUse": "A beta-blocker used to treat high blood pressure and angina",
+    "euWatchList": false,
+    "isAntibiotic": false,
+    "excretedUnchangedFraction": 0.9,
+    "wwtpRemoval": 0.97,
+    "paramSourceId": "machado-2026"
+  },
+  {
+    "id": "bisoprolol",
+    "name": "Bisoprolol",
+    "therapeuticClass": "Antihypertensive",
+    "plainUse": "A beta-blocker used to treat high blood pressure and heart failure",
+    "euWatchList": false,
+    "isAntibiotic": false,
+    "excretedUnchangedFraction": null,
+    "wwtpRemoval": null,
+    "paramSourceId": null
+  },
+  {
+    "id": "propranolol",
+    "name": "Propranolol",
+    "therapeuticClass": "Antihypertensive",
+    "plainUse": "A beta-blocker used for high blood pressure, migraine and anxiety",
+    "euWatchList": true,
+    "isAntibiotic": false,
+    "excretedUnchangedFraction": null,
+    "wwtpRemoval": 0.65,
+    "paramSourceId": "machado-2026"
+  },
+  {
+    "id": "indapamide",
+    "name": "Indapamide",
+    "therapeuticClass": "Antihypertensive",
+    "plainUse": "A diuretic used to treat high blood pressure",
+    "euWatchList": false,
+    "isAntibiotic": false,
+    "excretedUnchangedFraction": null,
+    "wwtpRemoval": null,
+    "paramSourceId": null
+  },
+  {
+    "id": "acetaminophen",
+    "name": "Acetaminophen",
+    "therapeuticClass": "Analgesic/antipyretic",
+    "plainUse": "A common painkiller and fever reducer, also called paracetamol",
+    "euWatchList": false,
+    "isAntibiotic": false,
+    "excretedUnchangedFraction": null,
+    "wwtpRemoval": null,
+    "paramSourceId": null
+  },
+  {
+    "id": "bezafibrate",
+    "name": "Bezafibrate",
+    "therapeuticClass": "Lipid regulator",
+    "plainUse": "Used to lower cholesterol and other fats in the blood",
+    "euWatchList": false,
+    "isAntibiotic": false,
+    "excretedUnchangedFraction": null,
+    "wwtpRemoval": null,
+    "paramSourceId": null
+  },
+  {
+    "id": "citalopram",
+    "name": "Citalopram",
+    "therapeuticClass": "Psychopharmaceutical",
+    "plainUse": "An antidepressant of the SSRI class",
+    "euWatchList": false,
+    "isAntibiotic": false,
+    "excretedUnchangedFraction": null,
+    "wwtpRemoval": null,
+    "paramSourceId": null
+  },
+  {
+    "id": "venlafaxine",
+    "name": "Venlafaxine",
+    "therapeuticClass": "Psychopharmaceutical",
+    "plainUse": "An antidepressant used for depression and anxiety",
+    "euWatchList": false,
+    "isAntibiotic": false,
+    "excretedUnchangedFraction": null,
+    "wwtpRemoval": null,
+    "paramSourceId": null
+  },
+  {
+    "id": "fluoxetine",
+    "name": "Fluoxetine",
+    "therapeuticClass": "Psychopharmaceutical",
+    "plainUse": "An antidepressant of the SSRI class",
+    "euWatchList": true,
+    "isAntibiotic": false,
+    "excretedUnchangedFraction": null,
+    "wwtpRemoval": null,
+    "paramSourceId": null
+  }
+]

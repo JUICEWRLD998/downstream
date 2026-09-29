@@ -1,0 +1,42 @@
+[
+  {
+    "id": "coimbra",
+    "name": "Coimbra",
+    "country": "Portugal",
+    "sitesSampled": null,
+    "rankTotalConcentration": 4,
+    "sourceId": "rodrigues-2025"
+  },
+  {
+    "id": "toulouse",
+    "name": "Toulouse",
+    "country": "France",
+    "sitesSampled": null,
+    "rankTotalConcentration": 1,
+    "sourceId": "rodrigues-2025"
+  },
+  {
+    "id": "benevento",
+    "name": "Benevento",
+    "country": "Italy",
+    "sitesSampled": null,
+    "rankTotalConcentration": 3,
+    "sourceId": "rodrigues-2025"
+  },
+  {
+    "id": "ghent",
+    "name": "Ghent",
+    "country": "Belgium",
+    "sitesSampled": null,
+    "rankTotalConcentration": 2,
+    "sourceId": "rodrigues-2025"
+  },
+  {
+    "id": "oslo",
+    "name": "Oslo",
+    "country": "Norway",
+    "sitesSampled": null,
+    "rankTotalConcentration": 5,
+    "sourceId": "rodrigues-2025"
+  }
+]

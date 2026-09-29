@@ -1,0 +1,194 @@
+[
+  {
+    "cityId": "all",
+    "compoundId": "group-antibiotic",
+    "detectionFrequency": 0.24,
+    "value": 41,
+    "unit": "ng/L",
+    "statistic": "median",
+    "evidence": "measured",
+    "sourceId": "rodrigues-2025"
+  },
+  {
+    "cityId": "all",
+    "compoundId": "group-anticonvulsant",
+    "detectionFrequency": 0.58,
+    "value": 98,
+    "unit": "ng/L",
+    "statistic": "median",
+    "evidence": "measured",
+    "sourceId": "rodrigues-2025"
+  },
+  {
+    "cityId": "all",
+    "compoundId": "group-antihypertensive",
+    "detectionFrequency": 0.84,
+    "value": 158,
+    "unit": "ng/L",
+    "statistic": "median",
+    "evidence": "measured",
+    "sourceId": "rodrigues-2025"
+  },
+  {
+    "cityId": "all",
+    "compoundId": "group-analgesic",
+    "detectionFrequency": 0.31,
+    "value": 825,
+    "unit": "ng/L",
+    "statistic": "median",
+    "evidence": "measured",
+    "sourceId": "rodrigues-2025"
+  },
+  {
+    "cityId": "all",
+    "compoundId": "group-lipid-regulator",
+    "detectionFrequency": 0.06,
+    "value": 108,
+    "unit": "ng/L",
+    "statistic": "median",
+    "evidence": "measured",
+    "sourceId": "rodrigues-2025"
+  },
+  {
+    "cityId": "all",
+    "compoundId": "group-psychopharmaceutical",
+    "detectionFrequency": 0.38,
+    "value": 114,
+    "unit": "ng/L",
+    "statistic": "median",
+    "evidence": "measured",
+    "sourceId": "rodrigues-2025"
+  },
+
+  {
+    "cityId": "toulouse",
+    "compoundId": "irbesartan",
+    "detectionFrequency": 0.86,
+    "value": 31659,
+    "unit": "ng/L",
+    "statistic": "max",
+    "evidence": "measured",
+    "sourceId": "rodrigues-2025"
+  },
+  {
+    "cityId": "ghent",
+    "compoundId": "acetaminophen",
+    "detectionFrequency": null,
+    "value": 16789,
+    "unit": "ng/L",
+    "statistic": "max",
+    "evidence": "measured",
+    "sourceId": "rodrigues-2025"
+  },
+  {
+    "cityId": "ghent",
+    "compoundId": "losartan",
+    "detectionFrequency": null,
+    "value": 1676,
+    "unit": "ng/L",
+    "statistic": "max",
+    "evidence": "measured",
+    "sourceId": "rodrigues-2025"
+  },
+  {
+    "cityId": "ghent",
+    "compoundId": "ofloxacin",
+    "detectionFrequency": 0.05,
+    "value": 1625,
+    "unit": "ng/L",
+    "statistic": "max",
+    "evidence": "measured",
+    "sourceId": "rodrigues-2025"
+  },
+  {
+    "cityId": "all",
+    "compoundId": "citalopram",
+    "detectionFrequency": null,
+    "value": 1599,
+    "unit": "ng/L",
+    "statistic": "max",
+    "evidence": "measured",
+    "sourceId": "rodrigues-2025"
+  },
+  {
+    "cityId": "all",
+    "compoundId": "carbamazepine",
+    "detectionFrequency": null,
+    "value": 1218,
+    "unit": "ng/L",
+    "statistic": "max",
+    "evidence": "measured",
+    "sourceId": "rodrigues-2025"
+  },
+  {
+    "cityId": "coimbra",
+    "compoundId": "bisoprolol",
+    "detectionFrequency": null,
+    "value": 0.06,
+    "unit": "ng/L",
+    "statistic": "min",
+    "evidence": "measured",
+    "sourceId": "rodrigues-2025"
+  },
+
+  {
+    "cityId": "coimbra",
+    "compoundId": "ofloxacin",
+    "detectionFrequency": 0.05,
+    "value": null,
+    "unit": "ng/L",
+    "statistic": "max",
+    "evidence": "measured",
+    "sourceId": "rodrigues-2025"
+  },
+  {
+    "cityId": "benevento",
+    "compoundId": "propranolol",
+    "detectionFrequency": 0.05,
+    "value": null,
+    "unit": "ng/L",
+    "statistic": "max",
+    "evidence": "measured",
+    "sourceId": "rodrigues-2025"
+  },
+  {
+    "cityId": "toulouse",
+    "compoundId": "propranolol",
+    "detectionFrequency": 0.36,
+    "value": null,
+    "unit": "ng/L",
+    "statistic": "max",
+    "evidence": "measured",
+    "sourceId": "rodrigues-2025"
+  },
+  {
+    "cityId": "ghent",
+    "compoundId": "propranolol",
+    "detectionFrequency": 0.36,
+    "value": null,
+    "unit": "ng/L",
+    "statistic": "max",
+    "evidence": "measured",
+    "sourceId": "rodrigues-2025"
+  },
+  {
+    "cityId": "coimbra",
+    "compoundId": "fluoxetine",
+    "detectionFrequency": 0.05,
+    "value": null,
+    "unit": "ng/L",
+    "statistic": "max",
+    "evidence": "measured",
+    "sourceId": "rodrigues-2025"
+  },
+  {
+    "cityId": "toulouse",
+    "compoundId": "fluoxetine",
+    "detectionFrequency": 0.05,
+    "value": null,
+    "unit": "ng/L",
+    "statistic": "max",
+    "evidence": "measured",
+    "sourceId": "rodrigues-2025"
+  }
+]
